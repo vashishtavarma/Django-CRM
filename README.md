@@ -1,1 +1,2 @@
+# Django-CRM Project
 Django-based Customer Record Management System. It enables users to register, log in, and manage customer records through a secure interface. Authenticated users can view, add, update, and delete customer data stored in the database. The system uses Django’s built-in authentication, form handling, and messaging framework to provide a smooth user experience within a single web interface.
