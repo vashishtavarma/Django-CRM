@@ -100,7 +100,7 @@ Located in `WEBSITE/templates/`:
 
 ### 1. Clone the Repository
 ```sh
-git clone <your-repo-url>
+git clone https://github.com/vashishtavarma/Django-CRM.git
 cd Django-CRM
 ```
 
