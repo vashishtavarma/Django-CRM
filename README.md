@@ -1,6 +1,6 @@
 # Django-CRM Project
 
-Django-based Customer Record Management System. It enables users to register, log in, and manage customer records through a secure interface. Authenticated users can view, add, update, and delete customer data stored in the database. The system uses Django’s built-in authentication, form handling, and messaging framework to provide a smooth user experience within a single web interface.
+A secure Django-based Customer Record Management System that enables users to register, log in, and manage customer records through an authenticated interface. Features comprehensive CRUD operations with proper security measures and environment-based configuration.
 
 ---
 
@@ -100,8 +100,8 @@ Located in `WEBSITE/templates/`:
 
 ### 1. Clone the Repository
 ```sh
-git clone https://github.com/vashishtavarma/Django-CRM.git
-cd Django-CRM
+git clone https://github.com/vashishtavarma/django-crm.git
+cd django-crm
 ```
 
 ### 2. Set Up Virtual Environment
@@ -115,26 +115,30 @@ source venv/bin/activate  # On Windows: venv\Scripts\activate
 pip install -r requirements.txt
 ```
 
-### 4. Configure MySQL Database
+### 4. Configure Environment Variables
+- Edit `.env` and set your actual values:
+  - Set your database credentials
+  - Configure other environment variables as needed
+
+### 5. Configure MySQL Database
 - Ensure MySQL is running.
-- Update DB credentials in `DCRM/settings.py` if needed.
 - Create the database:
 ```sh
 python mydb.py
 ```
 
-### 5. Run Migrations
+### 6. Run Migrations
 ```sh
 python manage.py makemigrations
 python manage.py migrate
 ```
 
-### 6. Create Superuser (for admin)
+### 7. Create Superuser (for admin)
 ```sh
 python manage.py createsuperuser
 ```
 
-### 7. Start the Development Server
+### 8. Start the Development Server
 ```sh
 python manage.py runserver
 ```
@@ -142,8 +146,29 @@ python manage.py runserver
 ---
 
 ## Environment Variables
-- `DJANGO_SECRET_KEY`: (Set in `DCRM/settings.py`)
-- MySQL credentials: Set in `DCRM/settings.py` under `DATABASES`
+
+Create a `.env` file in the project root with the following variables:
+
+```env
+# Django Configuration
+DJANGO_SECRET_KEY=your-unique-secret-key-here
+DEBUG=True
+ALLOWED_HOSTS=localhost,127.0.0.1
+
+# Database Configuration
+DB_NAME=dcrmdatabase
+DB_USER=root
+DB_PASSWORD=your-secure-password
+DB_HOST=localhost
+DB_PORT=3306
+```
+
+**⚠️ Security Notes:**
+- **Never commit `.env` files to version control**
+- Generate a strong, unique `DJANGO_SECRET_KEY` for production
+- Use strong database passwords
+- Set `DEBUG=False` in production
+- Configure appropriate `ALLOWED_HOSTS` for production
 
 ---
 
@@ -174,7 +199,3 @@ python manage.py runserver
   - Use a production-ready DB and web server.
 
 ---
-
-> **Note:**
-> - Do not commit secrets or credentials to version control.
-> - For any issues, check Django and MySQL documentation.
